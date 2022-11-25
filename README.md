@@ -1,2 +1,2 @@
 # PINN
- Physics Informed NN
+ Physics Informed Neural Network
