@@ -1,0 +1,13 @@
+
+# Using Docker
+docker run -ti -v "C:\projects\PINN\ADCME\adcme_workingdirectory:/myproject/" kailaix/adcme bash
+cd myproject
+julia
+listdir()
+
+
+# Using WSL2
+go to command line in pycharm
+
+wsl -d Ubuntu
+
