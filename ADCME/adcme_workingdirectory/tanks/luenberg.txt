@@ -1,0 +1,2 @@
+integrator,total_loss,computation_time,k_error
+luenberg,359.4862766931982,278.028432795,0.10455794777854663

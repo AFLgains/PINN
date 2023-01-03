@@ -55,8 +55,11 @@ uc_wnoise = uc .* (1.0 .+ 0.1*randn(length(uc[:,1]),length(uc[1,:]) ))
 loss = sum((uc_wnoise - u[:,1:25])^2)
 
 sess = Session(); init(sess)
+
+#println(run(sess,u_arr))
+
 BFGS!(sess, loss)
 
-κval = run(sess, κ); plot(xi, κval)
-xlabel("\$x\$"); ylabel("\$\\kappa\$")
-savefig("ex3_reference_uc_w_lots_noise.png")
+#κval = run(sess, κ); plot(xi, κval)
+#xlabel("\$x\$"); ylabel("\$\\kappa\$")
+#savefig("ex3_reference_uc_w_lots_noise.png")

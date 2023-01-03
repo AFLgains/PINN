@@ -1,0 +1,2 @@
+integrator,total_loss,computation_time,k_error
+backward_nr,3119.3037715279793,570.881062019,0.5079779101101916
