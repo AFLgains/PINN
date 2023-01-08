@@ -1,12 +1,30 @@
-# PINN
- Physics Informed Neural Network
+# Physics Informed Learning
+
+Although there are heaps of files in this repo, most of the files are just experimental. There are three main priority files (outlined below).
+Additionally, there are two optional files that explain a bit more about the car problem. The rest are not of concern.
 
 ## Priority Files
 
- - MPC - temperature variation 
- - Finite Difference method 3 with NN - Temperature Variation
- - Car optimisation
- - 2 tanks - Nonlinear with MPC
+ - **Car optimisation**: 
+ 
+The full car problem solved using Finite difference and used to generate 6% reduction in fuel spend
+
+ - **2 tanks - Nonlinear with MPC**:
+
+Simpler SAG mill analogy system
+
+ - **ADCME/adcme_workingdirectoy/tank_nl_speed_lk/twotanks_nl_speed_k_pcl_backward_crank_y.jl**:
+
+Full solution of the two tanks problem using ADMCE
+
+ - **ADCME/adcme_workingdirectoy/tank_nl_speed_lk/results/y**: 
+
+Results of the above
+
+## Optional:
+
+ - MPC - temperature variation: The Car problem outlined and data generated
+ - Finite Difference method 3 with NN - Temperature Variation: The general finite difference method used to solve the car problem
 
 ## Lower Priority
 
@@ -32,6 +50,7 @@
  - Simple car dynamics 4
  - Simple car dynamics 5
  - Simple ODE
+ - Everything in ADCME working directory except for that outlined in priority
 
 ## Random stuff
  - Burgers Equation
