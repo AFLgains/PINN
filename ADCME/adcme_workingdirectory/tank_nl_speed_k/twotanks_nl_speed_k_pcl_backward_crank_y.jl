@@ -61,15 +61,24 @@ function inv_sigmoid(x)
 end
 
 function speed_tf_guess(s)
-    guess = -0.44*s.^2 .+ 0.66.*s
+    #guess = -0.44*s.^2 .+ 0.66.*s
+    guess = s.^2 .*(1.0 .- s.^2)
     return inv_sigmoid(guess) # Initial guess at what it's supposed to be
     #return 0*s
 end
 
 function speed_est(a, config,theta)
+
+end
+
+function speed_est(a, config,theta)
     #a_transformed =  sigmoid(fc(a,config,theta))
-    a_transformed = (1- theta[1] - theta[2])*a.^3 + theta[2]*a.^2 .+ theta[1]*a
-    return a_transformed.*(1.0 .- a_transformed)
+    #a_transformed = (1- theta[1] - theta[2])*a.^3 + theta[2]*a.^2 .+ theta[1]*a
+    #return a_transformed.*(1.0 .- a_transformed)
+
+    error =  squeeze(fc(a,config,theta))
+    return 1*sigmoid(speed_tf_guess(a)+error)
+
 end
 
 # Eta estimation
@@ -146,7 +155,7 @@ dt = calc_dt(time)
 
 # Configure approximators
 config_s,theta_s = speed_approximater_inits()
-theta_s = Variable(ones(3))
+#theta_s = Variable(ones(3))
 speed_tf = speed_est(speed,config_s,theta_s)
 
 
