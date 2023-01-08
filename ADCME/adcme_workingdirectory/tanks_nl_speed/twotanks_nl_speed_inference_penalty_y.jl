@@ -73,7 +73,7 @@ function visualise_result_tf_speed(true_speed,config, theta, sess)
     plot(true_speed,true_speed.^2 .*(1.0.-true_speed.^2),"k.")
 
     xlabel("speed"); ylabel("tf")
-    savefig("results/pen/speed_tf.png")
+    savefig("results/pen_y/speed_tf.png")
 end
 
 function visualise_result_speed_time(time,speed,est_speed_tf)
@@ -82,7 +82,7 @@ function visualise_result_speed_time(time,speed,est_speed_tf)
     plot(time,est_speed_tf,"r-")
     xlabel("time"); ylabel("k")
     ylim((0,2))
-    savefig("results/pen/time vs speed_tf.png")
+    savefig("results/pen_y/time vs speed_tf.png")
 
 end
 
@@ -91,13 +91,13 @@ function visualise_result_state_time(time,true_h1,true_h2,h1_est,h2_est)
     plot(time,true_h1,"k.")
     plot(time,h1_est,"r-")
     xlabel("time"); ylabel("h1")
-    savefig("results/pen/time vs h1.png")
+    savefig("results/pen_y/time vs h1.png")
 
     figure(figsize=(10,4))
     plot(time,true_h2,"k.")
     plot(time,h2_est,"r-")
     xlabel("time"); ylabel("h2")
-    savefig("results/pen/time vs h2.png")
+    savefig("results/pen_y/time vs h2.png")
 end
 
 df,n = load_data(TANK_DATA)
@@ -117,7 +117,7 @@ h2_est = Variable(ones(n))
 res1,res2 = create_res(h1_est,h2_est,true_k,eta_approx,speed_tf,Uin,dt)
 
 # Calculate the residual
-loss = sqrt(sum(res1^2) + sum(res2^2) + sum((h1_est - h1)^2) + sum((h2_est - h2)^2))
+loss = sqrt(sum(res1^2) + sum(res2^2) + sum(( (h1_est - h2_est) - ( h2- h1) )^2))
 
 # Session + initialisation
 sess = Session(); init(sess)

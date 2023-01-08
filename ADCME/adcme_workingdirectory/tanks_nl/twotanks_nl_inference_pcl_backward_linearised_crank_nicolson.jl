@@ -41,7 +41,8 @@ function friction_approximater_inits()
 end
 
 function friction_est(a, config,theta)
-    nn = squeeze(fc(a,config,theta)^2) # 1 for stablity
+    #nn = squeeze(fc(a,config,theta)^2) # 1 for stablity
+    nn = squeeze(2*sigmoid(fc(a,config,theta)))
     return nn
 end
 
